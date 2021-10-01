@@ -1,0 +1,15 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "Backend for proshop",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "author": "Sai Teja Erukude",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  }
+}
