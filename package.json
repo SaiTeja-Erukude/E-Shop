@@ -8,12 +8,15 @@
     "start": "node backend/server",
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
   },
   "author": "Sai Teja Erukude",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.4",
+    "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "concurrently": "^6.2.2",
     "cors": "^2.8.5",
