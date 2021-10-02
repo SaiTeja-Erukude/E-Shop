@@ -10,7 +10,7 @@ import Order from './models/orderModel.js'
 import connectDB from './config/db.js'
 
 dotenv.config()
-connectDB()
+connectDB() 
 
 const importData = async () => {
     try{
@@ -34,9 +34,9 @@ const importData = async () => {
 
 const destroyData = async () => {
     try{
-        User.deleteMany()
-        Product.deleteMany()
-        Order.deleteMany()
+        await User.deleteMany()
+        await Product.deleteMany()
+        await Order.deleteMany()
 
         console.log('Data Destroyed!'.green.inverse)
         process.exit()
