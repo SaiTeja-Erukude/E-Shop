@@ -1,11 +1,21 @@
 main {
-    min-height: 85vh;
+   min-height: 85vh;
 }
 
 a {
-    text-decoration: none !important;  
+   text-decoration: none !important;
 }
 
 .rating span {
-    margin: 0.1rem;
+   margin: 0.1rem;
+}
+
+h1 {
+   font-size: 1.4rem;
+   padding: 1rem;
+}
+
+h2 {
+   font-size: 0.8rem;
+   padding: 0.5rem;
 }
