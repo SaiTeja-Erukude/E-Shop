@@ -5,11 +5,14 @@ import colors from 'colors'
 
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import errorHandler from './middleware/errorMiddleware.js'
 
 const app = express()
 
-app.use(express.json());
-app.use(cors());
+app.use(express.json())
+app.use(cors())
+
 dotenv.config()
 
 connectDB()
@@ -19,6 +22,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
+app.use(errorHandler)
 
 const port = process.env.PORT || 5000
 
