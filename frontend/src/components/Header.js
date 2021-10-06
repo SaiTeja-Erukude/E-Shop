@@ -10,7 +10,16 @@ const Header = () => {
     const logoutHandler = () => {
         dispatch(logout())
     }
-    
+
+    let loggedIn = false
+    try {
+        if (userInfo.name) {
+            loggedIn = true
+        }
+    } catch (error) {
+        loggedIn = false
+    }
+
     return (
         <header>
             <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
@@ -30,7 +39,7 @@ const Header = () => {
                                     Cart
                                 </Nav.Link>
                             </LinkContainer>
-                            {userInfo !== undefined ? (                     
+                            {loggedIn ? (
                                 <NavDropdown
                                     id='username'
                                     title={userInfo.name}
