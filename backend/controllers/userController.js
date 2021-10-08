@@ -103,4 +103,22 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     }
 })
 
-export { authUser, getUserProfile, registerUser, updateUserProfile }
+// @desc    Get all users
+// @route   GET api/users
+// @Access  Private and Admin
+const getAllUsers = asyncHandler(async (req, res) => {
+    const users = await User.find({})
+    if (users) {
+        res.json(users)
+    } else {
+        res.json('No existing users')
+    }
+})
+
+export {
+    authUser,
+    getUserProfile,
+    registerUser,
+    updateUserProfile,
+    getAllUsers,
+}
