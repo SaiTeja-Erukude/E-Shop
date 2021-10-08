@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, Card, Button, Form } from 'react-bootstrap'
+import { Row, Col, Button, Form } from 'react-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
@@ -17,7 +17,7 @@ const LoginScreen = ({ location, history }) => {
     const dispatch = useDispatch()
 
     const userLogin = useSelector((state) => state.userLogin)
-    const { loading, error, userInfo } = userLogin
+    const { loading, error } = userLogin
 
     useEffect(() => {
         if (localStorage.getItem('userInfo')) {

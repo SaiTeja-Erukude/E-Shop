@@ -105,7 +105,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
 // @desc    Get all users
 // @route   GET api/users
-// @Access  Private and Admin
+// @Access  Private & Admin
 const getAllUsers = asyncHandler(async (req, res) => {
     const users = await User.find({})
     if (users) {
@@ -115,10 +115,69 @@ const getAllUsers = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc    Delete a user
+// @route   DELETE api/users/:id
+// @Access  Private & Admin
+const deleteUser = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id)
+    if (user) {
+        await user.remove()
+        res.json({ message: 'User removed!' })
+    } else {
+        res.status(404)
+        throw new Error('User not found')
+    }
+})
+
+// @desc    Get user by ID
+// @route   GET api/users/:id
+// @Access  Private & Admin
+const getUserById = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id).select('-password')
+    if (user) {
+        res.json(user)
+    } else {
+        res.status(404)
+        throw new Error('User not found')
+    }
+})
+
+// @desc    Update any user
+// @route   PUT api/users/:id
+// @Access  Private & Admin
+const updateUser = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id)
+    console.log(user)
+    if (user) {
+        user.name = req.body.name || user.name
+        user.email = req.body.email || user.email
+        if (req.body.isAdmin !== undefined) {
+            user.isAdmin = req.body.isAdmin
+        } else {
+            user.isAdmin = user.isAdmin
+        }
+
+        const updatedUser = await user.save()
+
+        res.json({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+        })
+    } else {
+        res.status(404)
+        throw new Error('User not found!')
+    }
+})
+
 export {
     authUser,
     getUserProfile,
     registerUser,
     updateUserProfile,
     getAllUsers,
+    deleteUser,
+    getUserById,
+    updateUser,
 }

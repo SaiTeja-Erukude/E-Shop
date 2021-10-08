@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
     Row,
@@ -8,11 +8,9 @@ import {
     ListGroup,
     Button,
     Form,
-    ListGroupItem,
 } from 'react-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux'
-import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 
