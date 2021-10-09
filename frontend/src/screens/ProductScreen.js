@@ -20,6 +20,7 @@ import {
     createProductReview,
 } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
+import Meta from '../components/Meta'
 
 const ProductScreen = ({ history, match }) => {
     const [qty, setQty] = useState(1)
@@ -66,7 +67,7 @@ const ProductScreen = ({ history, match }) => {
 
     return (
         <>
-            <Link className='btn btn-dark my-3' to='/'>
+            <Link className='btn btn-dark btn-sm my-3' to='/'>
                 Go Back
             </Link>
             {loading ? (
@@ -75,12 +76,14 @@ const ProductScreen = ({ history, match }) => {
                 <Message variant='danger'>{error}</Message>
             ) : (
                 <>
+                    <Meta title={product.name}/>
                     <Row>
                         <Col md={6}>
                             <Image
                                 src={product.image}
                                 alt={product.name}
                                 fluid
+                                className='product-img'
                             ></Image>
                         </Col>
                         <Col md={3}>
@@ -188,7 +191,7 @@ const ProductScreen = ({ history, match }) => {
                                     </ListGroup.Item>
                                 ))}
                                 <ListGroup.Item>
-                                    <h3>Write a review</h3>
+                                    <h4>Write a review</h4>
                                     {errorReview && (
                                         <Message variant='danger'>
                                             Product already reviewed
@@ -208,7 +211,7 @@ const ProductScreen = ({ history, match }) => {
                                                     }
                                                 >
                                                     <option value='0'>
-                                                        Select
+                                                        - Select -
                                                     </option>
                                                     <option value='1'>
                                                         1 - Poor
@@ -243,6 +246,7 @@ const ProductScreen = ({ history, match }) => {
                                             <Button
                                                 type='submit'
                                                 variant='primary'
+                                                className='btn-sm'
                                             >
                                                 Submit
                                             </Button>

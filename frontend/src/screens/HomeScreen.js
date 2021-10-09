@@ -7,6 +7,8 @@ import { listProducts } from '../actions/productActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import ProductCarousel from '../components/ProductCarousel'
+import { Link } from 'react-router-dom'
+import Meta from '../components/Meta'
 
 const HomeScreen = ({ match }) => {
     const keyword = match.params.keyword
@@ -22,8 +24,15 @@ const HomeScreen = ({ match }) => {
 
     return (
         <>
-            {!keyword && <ProductCarousel />}
+            {!keyword ? (
+                <ProductCarousel />
+            ) : (
+                <Link to={'/'} className='btn btn-dark btn-sm'>
+                    Go Back
+                </Link>
+            )}
             <h1>Latest Products</h1>
+            <Meta />
             {loading ? (
                 <Loader />
             ) : error ? (

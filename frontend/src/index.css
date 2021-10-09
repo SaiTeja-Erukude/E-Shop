@@ -25,6 +25,15 @@ h2 {
     display: flex;
 }
 
+.product-img {
+    min-width: 30em;
+    margin-bottom: 1em;
+}
+
+.card-img {
+    min-height: 13em;
+}
+
 /* carousel */
 .carousel-item-prev,
 .carousel-item-next,
