@@ -59,7 +59,7 @@ const Rating = ({ value, text, color }) => {
                     }
                 ></i>
             </span>
-            <span> {text && text} reviews</span>
+            <span> {text && text} {text === 1 ? 'review' : 'reviews'}</span>
         </div>
     )
 }

@@ -1,21 +1,54 @@
 main {
-   min-height: 77vh;
+    min-height: 77vh;
 }
 
 a {
-   text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .rating span {
-   margin: 0.1rem;
+    margin: 0.1rem;
 }
 
 h1 {
-   font-size: 1.4rem;
-   padding: 1rem;
+    font-size: 1.4rem;
+    padding: 1rem;
 }
 
 h2 {
-   font-size: 0.8rem;
-   padding: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
 }
+
+.search {
+    margin-left: 4em;
+    display: flex;
+}
+
+/* carousel */
+.carousel-item-prev,
+.carousel-item-next,
+.carousel-item.active {
+    display: flex;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+}
+
+.carousel-caption h3 {
+    color: #fff;
+}
+.carousel img {
+    height: 335px;
+    padding: 20px;
+    margin: 40px;
+    border-radius: 50%;
+}
+
+.carousel a {
+    margin: 0 auto;
+}
+
+
