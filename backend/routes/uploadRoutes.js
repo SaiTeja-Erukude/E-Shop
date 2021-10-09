@@ -4,9 +4,11 @@ import path from 'path'
 
 const router = express.Router()
 
+const uploadPath = path.join(path.resolve(), '/frontend/public/images/')
+
 const storage = multer.diskStorage({
     destination(req, file, cb) {
-        cb(null, 'uploads/')
+        cb(null, uploadPath)
     },
     filename(req, file, cb) {
         cb(

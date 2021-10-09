@@ -34,8 +34,6 @@ app.get('/api/config/paypal', (req, res) =>
 )
 
 app.use(errorHandler)
-const __dirname = path.resolve()
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 const port = process.env.PORT || 5000
 
