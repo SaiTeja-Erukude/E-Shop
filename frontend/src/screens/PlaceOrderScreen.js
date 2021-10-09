@@ -5,6 +5,7 @@ import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { Link } from 'react-router-dom'
 import { createOrder } from '../actions/orderActions'
+import { CART_RESET_ITEMS } from '../constants/cartConstants'
 
 const PlaceOrderScreen = ({ history }) => {
     const dispatch = useDispatch()
@@ -49,6 +50,9 @@ const PlaceOrderScreen = ({ history }) => {
                 totalPrice: cart.totalPrice,
             })
         )
+        dispatch({
+            type: CART_RESET_ITEMS,
+        })
     }
     return (
         <>
