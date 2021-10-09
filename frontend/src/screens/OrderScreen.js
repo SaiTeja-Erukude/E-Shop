@@ -65,11 +65,11 @@ const OrderScreen = ({ match }) => {
                     <ListGroup variant='flush'>
                         <ListGroup.Item className='mb-3 mt-2'>
                             <h3>Shipping</h3>
-                            <p>Name: {order.user.name}</p>
+                            <p>Name: {order.user && order.user.name}</p>
                             <p>
                                 Email:{' '}
-                                <a href={`mailto:${order.user.email}`}>
-                                    {order.user.email}
+                                <a href={`mailto:${order.user && order.user.email}`}>
+                                    {order.user && order.user.email}
                                 </a>
                             </p>
                             <p>
