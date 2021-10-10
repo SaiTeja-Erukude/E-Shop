@@ -108,7 +108,7 @@ const ProfileScreen = ({ location, history }) => {
                 </Form>
             </Col>
             <Col md={9}>
-                <h3 className='mt-2'>My Orders</h3>
+                <h3 className='myorders'>My Orders</h3>
                 {loadingOrders ? (
                     <Loader />
                 ) : errorOrders ? (

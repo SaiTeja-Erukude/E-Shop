@@ -81,6 +81,9 @@ const OrderScreen = ({ match, history }) => {
         <Message variant='danger'>{error}</Message>
     ) : (
         <>
+            <Link className='btn btn-dark btn-sm my-3' to='/'>
+                Go Back
+            </Link>
             <h2>Order {order._id}</h2>
             <Row>
                 <Col md={8}>

@@ -175,7 +175,7 @@ const ProductScreen = ({ history, match }) => {
                     </Row>
                     <Row>
                         <Col md={6}>
-                            <h3>Reviews</h3>
+                            <h3 className='reviews'>Reviews</h3>
                             {product.reviews.length === 0 && (
                                 <Message>No Reviews</Message>
                             )}

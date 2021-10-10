@@ -73,7 +73,7 @@ const ProductListScreen = ({ history }) => {
                     <h2>Products</h2>
                 </Col>
                 <Col style={{ textAlign: 'right' }}>
-                    <Button className='my-3' onClick={createProductHandler}>
+                    <Button className='my-3 btn-sm' onClick={createProductHandler}>
                         <i className='fas fa-plus'></i> Create Product
                     </Button>
                 </Col>

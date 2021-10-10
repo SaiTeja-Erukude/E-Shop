@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 } else {
     app.get('/', (req, res) => {
-        res.send('Hi from ProShop backend')
+        res.send('Hi from E-Shop backend')
     })
 }
 
