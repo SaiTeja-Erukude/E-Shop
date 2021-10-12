@@ -1,26 +1,27 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import {
-    Row,
-    Col,
-    Card,
-    Image,
-    ListGroup,
-    Button,
-    Form,
-} from 'react-bootstrap'
+import { Row, Col, Card, Image, ListGroup, Button, Form } from 'react-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import Meta from '../components/Meta'
 
 const CartScreen = ({ match, history, location }) => {
     const productId = match.params.id
-    const qty = location.search ? Number(location.search.split('=')[1]) : 1
+    let qty = location.search ? Number(location.search.split('=')[1]) : 1
 
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart)
     const { cartItems } = cart
+
+    const localCartItems = JSON.parse(localStorage.getItem('cartItems'))
+    const alreadyInCart = localCartItems.find(
+        (item) => item.product === productId
+    )
+    if (alreadyInCart) {
+        qty += alreadyInCart.qty
+    }
 
     useEffect(() => {
         if (productId) {
@@ -38,6 +39,7 @@ const CartScreen = ({ match, history, location }) => {
 
     return (
         <Row>
+            <Meta title='Cart | E-Shop' />
             <Col md={8}>
                 <h1>Shopping Cart</h1>
                 {cartItems.length === 0 ? (

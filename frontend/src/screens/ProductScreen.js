@@ -40,6 +40,8 @@ const ProductScreen = ({ history, match }) => {
     )
     const { error: errorReview, success: successReview } = productCreateReview
 
+    let reviewAdded = 0
+
     useEffect(() => {
         if (successReview) {
             alert('Review Submitted')
@@ -49,7 +51,7 @@ const ProductScreen = ({ history, match }) => {
         }
         dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
         dispatch(listProductDetails(match.params.id))
-    }, [dispatch, match, successReview])
+    }, [dispatch, match, successReview, reviewAdded])
 
     const addToCartHandler = () => {
         history.push(`/cart/${match.params.id}?qty=${qty}`)
@@ -63,6 +65,7 @@ const ProductScreen = ({ history, match }) => {
                 comment,
             })
         )
+        reviewAdded += 1
     }
 
     return (
@@ -76,7 +79,7 @@ const ProductScreen = ({ history, match }) => {
                 <Message variant='danger'>{error}</Message>
             ) : (
                 <>
-                    <Meta title={product.name}/>
+                    <Meta title={product.name + ' | E-Shop'} />
                     <Row>
                         <Col md={6}>
                             <Image
@@ -197,7 +200,8 @@ const ProductScreen = ({ history, match }) => {
                                             Product already reviewed
                                         </Message>
                                     )}
-                                    {userInfo ? (
+                                    {userInfo &&
+                                    localStorage.getItem('userInfo') ? (
                                         <Form onSubmit={submitHandler}>
                                             <Form.Group controlId='rating'>
                                                 <Form.Label>Rating</Form.Label>

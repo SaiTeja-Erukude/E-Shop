@@ -6,6 +6,7 @@ import CheckoutSteps from '../components/CheckoutSteps'
 import { Link } from 'react-router-dom'
 import { createOrder } from '../actions/orderActions'
 import { CART_RESET_ITEMS } from '../constants/cartConstants'
+import Meta from '../components/Meta'
 
 const PlaceOrderScreen = ({ history }) => {
     const dispatch = useDispatch()
@@ -56,6 +57,7 @@ const PlaceOrderScreen = ({ history }) => {
     }
     return (
         <>
+            <Meta title='Place Order | E-Shop' />
             <CheckoutSteps step1 step2 step3 step4 />
             <Row>
                 <Col md={8}>

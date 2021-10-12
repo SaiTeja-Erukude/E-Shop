@@ -65,6 +65,10 @@ h2 {
     margin: 0 auto;
 }
 
+.navbar {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
 /* Responsiveness */
 @media only screen and (max-width: 480px) {
     .search {
@@ -96,8 +100,11 @@ h2 {
     .myorders {
         margin: 1.5em 0 1em 0 !important;
     }
-
     .footer-text {
         font-size: 12px;
+    }
+    .navbar {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
     }
 }

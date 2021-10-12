@@ -9,6 +9,7 @@ const Product = ({ product }) => {
             <Link to={`/product/${product._id}`}>
                 <Card.Img
                     src={product.image}
+                    alt={product.name}
                     variant='top'
                     className='card-img'
                 />
