@@ -16,11 +16,13 @@ const CartScreen = ({ match, history, location }) => {
     const { cartItems } = cart
 
     const localCartItems = JSON.parse(localStorage.getItem('cartItems'))
-    const alreadyInCart = localCartItems.find(
-        (item) => item.product === productId
-    )
-    if (alreadyInCart) {
-        qty += alreadyInCart.qty
+    if (localCartItems) {
+        const alreadyInCart = localCartItems.find(
+            (item) => item.product === productId
+        )
+        if (alreadyInCart) {
+            qty += alreadyInCart.qty
+        }
     }
 
     useEffect(() => {
