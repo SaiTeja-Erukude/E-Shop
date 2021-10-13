@@ -1,7 +1,7 @@
 {
-  "name": "proshop",
+  "name": "e-shop",
   "version": "1.0.0",
-  "description": "Backend for proshop",
+  "description": "Backend for E-Shop",
   "main": "backend/server.js",
   "type": "module",
   "scripts": {
